@@ -1,7 +1,11 @@
-vim.o.mouse = ''
-vim.wo.relativenumber = true
-vim.go.tabstop = 2
+vim.opt.relativenumber = true
 
 vim.api.nvim_create_autocmd('TermOpen', { command = 'setlocal nonumber norelativenumber' })
-
-return {}
+vim.api.nvim_create_autocmd({ 'TermOpen', 'BufEnter' }, {
+  pattern = { '*' },
+  callback = function()
+    if vim.opt.buftype:get() == 'terminal' then
+      vim.cmd ':startinsert'
+    end
+  end,
+})
