@@ -6,17 +6,16 @@ return {
     ---@diagnostic disable-next-line
     require('nvim-surround').setup {
       keymaps = {
-        insert = '<c-g>s',
-        insert_line = '<c-g>S',
-        normal = 's',
-        normal_cur = 'ss',
-        normal_line = 'S',
-        normal_cur_line = 'SS',
-        visual = 'S',
-        visual_line = 'gS',
-        delete = 'ds',
-        change = 'cs',
-        change_line = 'cS',
+        insert = '<C-g>z',
+        insert_line = 'g<C-g>gZ',
+        normal = 'gz',
+        normal_cur = 'gZ',
+        normal_line = 'gzgz',
+        normal_cur_line = 'gZgZ',
+        visual = 'gz',
+        visual_line = 'gZ',
+        delete = 'gzd',
+        change = 'gzc',
       },
     }
   end,
