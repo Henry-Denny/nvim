@@ -1,22 +1,20 @@
 return {
-  'kylechui/nvim-surround',
-  version = '*',
-  event = 'VeryLazy',
+  'echasnovski/mini.nvim',
   config = function()
-    ---@diagnostic disable-next-line
-    require('nvim-surround').setup {
-      keymaps = {
-        insert = '<C-g>z',
-        insert_line = 'g<C-g>gZ',
-        normal = 'gz',
-        normal_cur = 'gZ',
-        normal_line = 'gzgz',
-        normal_cur_line = 'gZgZ',
-        visual = 'gz',
-        visual_line = 'gZ',
-        delete = 'gzd',
-        change = 'gzc',
+    require('mini.surround').setup {
+      mappings = {
+        add = 'gza', -- Add surrounding in Normal and Visual modes
+        delete = 'gzd', -- Delete surrounding
+        find = 'gzf', -- Find surrounding (to the right)
+        find_left = 'gzF', -- Find surrounding (to the left)
+        highlight = 'gzh', -- Highlight surrounding
+        replace = 'gzr', -- Replace surrounding
+        update_n_lines = 'gzn', -- Update `n_lines`
+
+        suffix_last = 'l', -- Suffix to search with "prev" method
+        suffix_next = 'n', -- Suffix to search with "next" method
       },
+      respect_scrolloff = true,
     }
   end,
 }
